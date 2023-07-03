@@ -12,8 +12,31 @@ import { VscChromeClose } from "react-icons/vsc";
 const Header = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [showCatMenu, setShowCatMenu] = useState(false);
-  const [show, setShow] = "translate-y-0";
+  const [show, setShow] = useState("translate-y-0");
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const controlNavbar = () => {
+    if(window.scrollY > 200){
+      if(window.scrollY > lastScrollY  && !mobileMenu){
+        setShow("-translate-y-[80px]")
+      }
+      else{
+  setShow("shadow-sm")
+      }
+    }
+    else{
+      setShow("translate-y-0")
+    }
+    setLastScrollY(window.scrollY);
+
+  }
+  
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, [lastScrollY]);
 
   return (
     <header
