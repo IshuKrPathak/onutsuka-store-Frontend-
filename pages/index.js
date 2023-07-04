@@ -1,6 +1,7 @@
 import HeroBanner from "@/components/HeroBanner";
 import Wrapper from "@/components/Wrapper";
 import ProductCard from "@/components/ProductCard";
+import ProductDetails from "./Product/[slug]";
 export default function Home() {
   return (
     <main>
