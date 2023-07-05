@@ -2,6 +2,7 @@ import React from "react";
 import Wrapper from "@/components/Wrapper";
 import { IoMdHeartEmpty } from "react-icons/io";
 import ProductDetailsCarousel from "@/components/ProductDetailsCarousel";
+import RelatedProduct from "@/components/RelatedProduct";
 
 const ProductDetails = () => {
   return (
@@ -96,6 +97,7 @@ UPC #: 197298026697
            </div>
           </div>
         </div>
+        <RelatedProduct />
       </Wrapper>
     </div>
   );
