@@ -33,7 +33,8 @@ const RelatedProduct = () => {
         <ProductCard/>
         <ProductCard/>
       </Carousel>
-      ;
+
+      <Link  href="/ProductCard.jsx"></Link>
     </div>
   );
 };

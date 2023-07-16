@@ -3,7 +3,8 @@ import React from "react";
 
 const ProductCard = () => {
   return (
-    <Link href="/product/1" className="transform overflow-hidden bg-white duration-200 hover:scale-105 cursor-pointer">
+    <Link href="/product/1" 
+    className="transform overflow-hidden bg-white duration-200 hover:scale-105 cursor-pointer">
       <img className="w-full" src="/1.jpg" alt="product image " />
       <div className="p-4 text-black/[0.9]">
         <h2 className="text-lg font-medium ">Product name </h2>
