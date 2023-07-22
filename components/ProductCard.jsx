@@ -3,7 +3,7 @@ import React from "react";
 
 const ProductCard = () => {
   return (
-    <Link href="/product/1" 
+    <Link href="/ProductDetailsCarousel.jsx" 
     className="transform overflow-hidden bg-white duration-200 hover:scale-105 cursor-pointer">
       <img className="w-full" src="/1.jpg" alt="product image " />
       <div className="p-4 text-black/[0.9]">
