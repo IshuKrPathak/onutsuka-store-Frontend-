@@ -2,7 +2,14 @@ import HeroBanner from "@/components/HeroBanner";
 import Wrapper from "@/components/Wrapper";
 import ProductCard from "@/components/ProductCard";
 import ProductDetails from "./Product/[slug]";
+import { useState } from "react";
 export default function Home() {
+
+//data fetching
+const [data,setData] = useState(null);
+
+
+
   return (
     <main>
       <HeroBanner />
