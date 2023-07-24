@@ -4,22 +4,22 @@ import ProductCard from "@/components/ProductCard";
 import ProductDetails from "./Product/[slug]";
 import { useEffect, useState } from "react";
 import { fetchDataFromApi } from "@/Utils/api";
-export default function Home() {
+export default function Home({products}) {
   //data fetching
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  // const [data, setData] = useState(null);
+  // useEffect(() => {
+  //   fetchProducts();
+  // }, []);
 
-  const fetchProducts = async () => {
-    const { data } = await fetchDataFromApi("/api/products");
-    setData(data);
-  };
+  // const fetchProducts = async () => {
+  //   const { data } = await fetchDataFromApi("/api/products");
+  //   setData(data);
+  // };
 
   return (
     <main>
       <HeroBanner />
-      <h1>{data?.[0]?.attributes?.name}</h1>
+      {/* <h1>{products?.data?.[0]?.attributes?.name}</h1> */}
       <Wrapper>
         <div className="text-center max-w-[800px] mx-auto my-[50px] md:my-[80px]">
           <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
@@ -37,17 +37,31 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:geid-cols-2 lg:grid-cols-3 gap-5 my-14 px-5 md:px-0">
+          {products?.data?.map((product)=>(
+            <ProductCard key={product?.id} data={product}/>
+          ))}
+          {/* <ProductCard /> */}
+          {/* <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
-          <ProductCard />
-          <ProductCard />
-          <ProductCard />
+          <ProductCard /> */}
+
         </div>
       </Wrapper>
     </main>
   );
 }
+
+export async function getStaticProps(){
+  const products = await fetchDataFromApi("/api/products?populate=*");
+
+  return {
+    props:{products:products}
+  }
+}
+
+

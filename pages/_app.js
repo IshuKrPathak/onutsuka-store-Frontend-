@@ -3,9 +3,11 @@ import Head from "next/head";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { StrictMode } from "react";
 
 export default function App({ Component, pageProps }) {
     return (
+       
         <>
             <Head>
                 <title>onutsuka Shoe Store</title>
@@ -31,7 +33,9 @@ export default function App({ Component, pageProps }) {
             </Head>
             <Header />
             <Component {...pageProps} />
+            
             <Footer />
+            
         </>
     );
 }
