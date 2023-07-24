@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProductCard from "./ProductCard";
@@ -34,7 +35,7 @@ const RelatedProduct = () => {
         <ProductCard/>
       </Carousel>
 
-      <Link  href="/ProductCard.jsx"></Link>
+      <Link  href="/ProductDetailsCarousel.jsx"></Link>
     </div>
   );
 };
