@@ -3,7 +3,8 @@ import Wrapper from "@/components/Wrapper";
 import ProductCard from "@/components/ProductCard";
 import ProductDetails from "./Product/[slug]";
 import { useEffect, useState } from "react";
-import { fetchDataFromApi } from "@/Utils/api";
+import { fetchdatafromapi } from "@/utils/api";
+
 export default function Home({products}) {
   //data fetching
   // const [data, setData] = useState(null);
@@ -12,7 +13,7 @@ export default function Home({products}) {
   // }, []);
 
   // const fetchProducts = async () => {
-  //   const { data } = await fetchDataFromApi("/api/products");
+  //   const { data } = await fetchdatafromapi("/api/products");
   //   setData(data);
   // };
 
@@ -40,15 +41,15 @@ export default function Home({products}) {
           {products?.data?.map((product)=>(
             <ProductCard key={product?.id} data={product}/>
           ))}
-          {/* <ProductCard /> */}
-          {/* <ProductCard />
+           {/* <ProductCard /> 
+           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
           <ProductCard />
-          <ProductCard /> */}
+          <ProductCard />  */}
 
         </div>
       </Wrapper>
@@ -57,7 +58,7 @@ export default function Home({products}) {
 }
 
 export async function getStaticProps(){
-  const products = await fetchDataFromApi("/api/products?populate=*");
+  const products = await fetchdatafromapi("/api/products?populate=*");
 
   return {
     props:{products:products}
