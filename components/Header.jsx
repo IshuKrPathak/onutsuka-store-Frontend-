@@ -60,7 +60,7 @@ const Header = () => {
         <Link href="/">
           <img
             src="/onutsuka-logo.png"
-            className="w-[50px] md:-wi[60px]"
+            className="w-[70px] md:-wi[60px]"
             alt=""
           />
         </Link>
