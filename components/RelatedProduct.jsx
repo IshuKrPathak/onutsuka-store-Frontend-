@@ -3,7 +3,7 @@ import Link from "next/link";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import ProductCard from "./ProductCard";
-const RelatedProduct = () => {
+const RelatedProducts = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -40,4 +40,4 @@ const RelatedProduct = () => {
   );
 };
 
-export default RelatedProduct;
+export default RelatedProducts;

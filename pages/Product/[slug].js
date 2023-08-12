@@ -97,10 +97,44 @@ UPC #: 197298026697
            </div>
           </div>
         </div>
-        <RelatedProduct />
+        {/* <RelatedProduct /> */}
       </Wrapper>
     </div>
   );
 };
 
 export default ProductDetails;
+
+
+export async function getStaticPaths() {
+  const products = await fetchdatafromapi("/api/products?populate=*");
+  const paths = category?.data?.map((p) => ({
+    params: {
+      slug: p.attributes.slug,
+    },
+  }));
+  return {
+    fallback: false, // See the "fallback" section below
+    paths,
+
+  }
+}
+
+export async function getStaticProps({ params: { slug } }) {
+  const product = await fetchdatafromapi(
+    `/api/products?filters[slug][$eq]=${slug}`
+  );
+  const products = await fetchdatafromapi(
+    `/api/products?populate=*&[filters][categories][slug][$eq]=${slug}&pagination[page]=1&pagination[pageSize]=${maxResult}`
+  );
+
+  return {
+    props: {
+      
+      product
+      
+    },
+  };
+}
+
+//2:16:47

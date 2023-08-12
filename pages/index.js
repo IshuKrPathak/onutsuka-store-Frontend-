@@ -61,7 +61,7 @@ export async function getStaticProps(){
   const products = await fetchdatafromapi("/api/products?populate=*");
 
   return {
-    props:{products:products}
+    props:{products}
   }
 }
 
